@@ -5,7 +5,7 @@ async function getPostgresClient() {
     const credential = new DefaultAzureCredential();
     const pgHost = process.env.PGHOST || "wisebond-server.postgres.database.azure.com";
     const database = process.env.PGDATABASE || "postgres";
-    const user = process.env.PGUSER || "WiseBond-MI";
+    const user = process.env.PGUSER || "wisebondtest";
 
     const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
 
