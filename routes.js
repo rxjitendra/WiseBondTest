@@ -36,7 +36,7 @@ router.get("/employees", async (req, res) => {
         res.json({ data: result.rows });
     } catch (err) {
         console.error("DB Error:", err);
-        res.status(500).json({ error: "Database error" });
+        res.status(500).json({ error: err });
     } finally {
         if (client) await client.end();
     }
