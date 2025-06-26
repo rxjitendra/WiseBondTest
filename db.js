@@ -3,10 +3,10 @@ const { Client } = require("pg");
 
 async function getPostgresClient() {
     const credential = new DefaultAzureCredential();
-    const host = process.env["AZURE_POSTGRESQL_HOST"].trim();
-    const database = process.env["AZURE_POSTGRESQL_DATABASE"].trim();
-    const user = process.env["AZURE_POSTGRESQL_USER"].trim();
-    const port = process.env["AZURE_POSTGRESQL_PORT"].trim();
+    const host = process.env["database_host"].trim();
+    const database = process.env["database_name"].trim();
+    const user = process.env["database_user"].trim();
+    const port = process.env["database_port"].trim();
 
     const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
     const password = tokenResponse.token;
