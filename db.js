@@ -3,18 +3,20 @@ const { Client } = require("pg");
 
 async function getPostgresClient() {
     const credential = new DefaultAzureCredential();
-    const pgHost = process.env.PGHOST || "wisebond-server.postgres.database.azure.com";
-    const database = process.env.PGDATABASE || "postgres";
-    const user = process.env.PGUSER || "wisebondtest";
-console.log(user);
+    const host = process.env["database-host"];
+    const database = process.env["database-name"];
+    const user = process.env["database-user"];
+    const port = process.env["database-port"];
+
     const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+    const password = tokenResponse.token;
 
     const client = new Client({
-        host: pgHost,
+        host,
         database,
-        port: 5432,
+        port,
         user,
-        password: tokenResponse.token,
+        password,
         ssl: {
             rejectUnauthorized: true,
         },
