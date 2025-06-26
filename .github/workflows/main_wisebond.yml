@@ -59,4 +59,4 @@ jobs:
           app-name: 'WiseBond'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_316360C890224AB1B2C77AC1B7B05B5A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9049D406D1C04137BE43788A03DA5D97 }}
