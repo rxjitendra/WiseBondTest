@@ -1,8 +1,8 @@
-const { ManagedIdentityCredential } = require("@azure/identity");
+const { DefaultAzureCredential } = require("@azure/identity");
 const { Client } = require("pg");
 
 async function getPostgresClient() {
-    const credential = new ManagedIdentityCredential();
+    const credential = new DefaultAzureCredential();
     const host = process.env["database_host"].trim();
     const database = process.env["database_name"].trim();
     const user = process.env["database_user"].trim();
